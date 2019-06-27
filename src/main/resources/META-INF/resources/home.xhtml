@@ -12,24 +12,10 @@
 </h:head>
 
 <h:body>
-    <h:form id="form1">
-        <h:panelGrid>
-            <p:inputText value="#{homeController.name}"/>
-            <p:inputText value="#{homeController.surname}"/>
-            <p:commandButton value="Say Hello" action="#{homeController.sayHello1()}"/>
-        </h:panelGrid>
+    <h:form>
+        <h:outputText value:="#{homeController.name}"/>
+        <h:outputText value:="#{homeController.surname}"/>
+        <p:commandButton value:="Отправить данные" action=""/>
     </h:form>
-
-    <br/>
-
-    <h:form id="form2">
-        <h:panelGrid>
-            <p:inputText value="#{homeController.name}"/>
-            <p:inputText value="#{homeController.surname}"/>
-            <p:commandButton value="Say Hello" action="#{homeController.sayHello2()}" update="nameLabel"/>
-        </h:panelGrid>
-    </h:form>
-
-    <h:outputLabel id="nameLabel" value="Hello #{homeController.name}"/>
 </h:body>
 </html>
