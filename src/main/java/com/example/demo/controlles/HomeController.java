@@ -5,9 +5,9 @@ import javax.inject.Named;
 @Named
 public class HomeController {
 
-    private String name;
+    private String name="Bogdan";
 
-    private String surname;
+    private String surname="Krasun";
 
     private String dateBirth;
     private String placeBirth;
