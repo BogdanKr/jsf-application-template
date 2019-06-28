@@ -12,11 +12,16 @@
 </h:head>
 
 <h:body>
+
+    <h:outputLabel value="Заполните форму"/>
+    <br/>
     <h:form id="form1">
         <h:panelGrid>
+            <h:outputLabel value="NAME"/>
             <p:inputText value="#{homeController.name}"/>
+            <h:outputLabel value="SURNAME"/>
             <p:inputText value="#{homeController.surname}"/>
-            <p:commandButton value="Say Hello" action="#{homeController.sayHello1()}"/>
+            <p:commandButton value="Submit" action="#{homeController.sayHello1()}"/>
         </h:panelGrid>
     </h:form>
 
@@ -30,6 +35,6 @@
         </h:panelGrid>
     </h:form>
 
-    <h:outputLabel id="nameLabel" value="Hello #{homeController.name}"/>
+    <h:outputLabel id="nameLabel" value="Hello #{homeController.name} #{homeController.surname}"/>
 </h:body>
 </html>

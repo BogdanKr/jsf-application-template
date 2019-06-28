@@ -15,13 +15,14 @@
     <!--     <h:outputText value="Hello #{param['name']}" />-->
     <h:outputText value="Продолжайте #{homeController.name} #{homeController.surname}"/>
     <br/>
-    <h:outputText value="Введите дату рождения"/>
+    <h:outputText value="Ваша дата рождения  #{homeController.dateBirth}
+      место рождения #{homeController.placeBirth} и адрес проживания #{homeController.address}"/>
+    <br/>
+    <h:outputText value="Введите Email"/>
     <h:form>
         <h:panelGrid>
-            <p:inputText value="#{homeController.dateBirth}"/>
-            <h:outputText value="Введите место рождения"/>
-            <p:inputText value="#{homeController.placeBirth}"/>
-            <p:commandButton value="Submit" action="#{homeController.submitBirth}"/>
+            <p:inputText value="#{homeController.email}"/>
+            <p:commandButton value="Finish" />
         </h:panelGrid>
 
     </h:form>
