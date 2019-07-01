@@ -21,6 +21,12 @@
             <p:inputText value="#{homeController.dateBirth}"/>
             <h:outputText value="Введите место рождения"/>
             <p:inputText value="#{homeController.placeBirth}"/>
+
+            <p:selectOneRadio id="console" value="#{homeController.city}" unselectable="true">
+                <f:selectItem itemLabel="Kiev" itemValue="Kiev" />
+                <f:selectItem itemLabel="Moscow" itemValue="Moscow" />
+                <f:selectItem itemLabel="London" itemValue="London" />
+            </p:selectOneRadio>
             <p:commandButton value="Submit" action="#{homeController.submitBirth}"/>
         </h:panelGrid>
 

@@ -21,7 +21,7 @@
             <p:inputText value="#{homeController.name}"/>
             <h:outputLabel value="SURNAME"/>
             <p:inputText value="#{homeController.surname}"/>
-            <p:commandButton value="Submit" action="#{homeController.sayHello1()}"/>
+            <p:commandButton value="Submit" action="#{homeController.sayHello1()}" update="form1, nameLabel"/>
         </h:panelGrid>
     </h:form>
 

@@ -1,18 +1,40 @@
 package com.example.demo.controlles;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.inject.Named;
 
 @Named
 public class HomeController {
+    public final static Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-    private String name="Bogdan";
+    private String name = "Bogdan";
 
-    private String surname="Krasun";
+    private String surname = "Krasun";
 
     private String dateBirth;
     private String placeBirth;
     private String address;
     private String email;
+    private String city;
+    private boolean checkbox;
+
+    public boolean isCheckbox() {
+        return checkbox;
+    }
+
+    public void setCheckbox(boolean checkbox) {
+        this.checkbox = checkbox;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public String getDateBirth() {
         return dateBirth;
@@ -64,6 +86,7 @@ public class HomeController {
 
     public String sayHello1() {
         System.out.println("Name & Surname :  " + name + " " + surname);
+        LOGGER.warn("Привет, Это первый лог!!))");
         return "hello.xhtml?faces-redirect=true&name=" + name;
     }
 
@@ -71,13 +94,17 @@ public class HomeController {
         System.out.println("Hello1 " + name + " " + surname);
     }
 
-    public String submitBirth(){
-        System.out.println("Date and place of birth: " +dateBirth+" "+ placeBirth);
-        return "address.xhtml?faces-redirect=true&name="+ placeBirth;
+    public String submitBirth() {
+        System.out.println("Date and place of birth: " + dateBirth + " " + placeBirth);
+        return "address.xhtml?faces-redirect=true&name=" + placeBirth;
     }
 
-    public String submitAddress(){
+    public String submitAddress() {
         System.out.println("Адрес: " + address);
-        return "email.xhtml?faces-redirect=true&name="+ address;
+        return "email.xhtml?faces-redirect=true&name=" + address;
+    }
+
+    public void finish() {
+        System.out.println("Finish: " + name + " " + surname);
     }
 }

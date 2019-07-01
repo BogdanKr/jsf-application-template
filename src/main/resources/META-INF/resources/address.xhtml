@@ -20,10 +20,13 @@
     <br/>
     <h:outputText value="Введите адресс проживания"/>
     <h:form>
-        <h:panelGrid>
             <p:inputText value="#{homeController.address}"/>
+
+            <p:selectBooleanCheckbox value="#{homeController.checkbox}" itemLabel="Проулок"/>
+            <p:selectBooleanCheckbox value="#{homeController.checkbox}" itemLabel="Улица"/>
+            <p:selectBooleanCheckbox value="#{homeController.checkbox}" itemLabel="Проспект"/>
+
             <p:commandButton value="Submit" action="#{homeController.submitAddress}"/>
-        </h:panelGrid>
 
     </h:form>
 
