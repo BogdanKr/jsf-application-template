@@ -19,6 +19,24 @@ public class HomeController {
     private String email;
     private String city;
     private boolean checkbox;
+    private String finish;
+    private String selectonemenu;
+
+    public String getSelectonemenu() {
+        return selectonemenu;
+    }
+
+    public void setSelectonemenu(String selectonemenu) {
+        this.selectonemenu = selectonemenu;
+    }
+
+    public String getFinish() {
+        return finish;
+    }
+
+    public void setFinish(String finish) {
+        this.finish = finish;
+    }
 
     public boolean isCheckbox() {
         return checkbox;
@@ -106,5 +124,10 @@ public class HomeController {
 
     public void finish() {
         System.out.println("Finish: " + name + " " + surname);
+        System.out.println("SelectOneMenu: "+ selectonemenu);
+    }
+
+    public String goPrime(){
+        return "primefaces.xhtml?faces-redirect=true";
     }
 }

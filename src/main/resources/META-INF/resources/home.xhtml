@@ -9,6 +9,13 @@
 
 <h:head>
     <title>Demo application</title>
+    <style type="text/css">
+        .ui-g div {
+            background-color: #ededed;
+            text-align: center;
+            border: 1px solid #fafafa;
+        }
+    </style>
 </h:head>
 
 <h:body>
@@ -36,5 +43,23 @@
     </h:form>
 
     <h:outputLabel id="nameLabel" value="Hello #{homeController.name} #{homeController.surname}"/>
+
+    <div class="ui-g" style="height: 200px">
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-1">1</div>
+        <div class="ui-g-2">2</div>
+    </div>
+    <h:form>
+        <p:commandButton value="Prime-faces" action="#{homeController.goPrime}" />
+    </h:form>
+
 </h:body>
 </html>

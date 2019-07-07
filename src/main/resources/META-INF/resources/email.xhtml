@@ -27,9 +27,34 @@
 
     </h:form>
 
-    <h:outputLabel  value="Спасибо #{homeController.name} #{homeController.surname},
+    <h:outputLabel value="Спасибо #{homeController.name} #{homeController.surname},
 ваша дата рождения #{homeController.dateBirth} родились в #{homeController.placeBirth}
 проживаете по адрессу #{homeController.address} и ваш email #{homeController.email}"/>
+    <br/>
+
+    <h:form id="form3">
+        <h:panelGrid columns="2" style="margin-bottom:3px" cellpadding="1">
+            <h:outputText value="Продолжаем?? "/>
+            <p:selectOneButton value="#{homeController.finish}">
+                <f:selectItem itemLabel="Continue" itemValue="Continue"/>
+                <f:selectItem itemLabel="Finish" itemValue="Finish"/>
+            </p:selectOneButton>
+
+            <p:commandButton value="Submit" update="display" icon="pi pi-check"/>
+            <p:spacer/>
+
+            <h:outputText value="Selected:"/>
+            <h:outputText id="display" value="#{homeController.finish}" style="font-weight: bold"/>
+        </h:panelGrid>
+
+        <p:selectOneMenu  value="#{homeController.selectonemenu}" >
+            <f:selectItem itemLabel="Select One" itemValue="" />
+            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+            <f:selectItem itemLabel="#{homeController.address}" itemValue="#{homeController.address}+111" />
+        </p:selectOneMenu>
+    </h:form>
 
 </h:body>
 </html>
