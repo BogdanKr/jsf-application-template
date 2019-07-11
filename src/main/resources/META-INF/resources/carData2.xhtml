@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Demo application</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+
+        <p:dataScroller var="car" value="#{homeController.cars}" chunkSize="100">
+            <f:facet name="header">
+                Scroll Down to Load More Cars
+            </f:facet>
+            <p:panelGrid columns="4" style="width: 100%">
+                <h:outputText headerText="CarId"/>
+                <h:outputText headerText="CarName"/>
+                <h:outputText headerText="Year"/>
+                <h:outputText headerText="Color"/>
+
+                <h:outputText value="#{car.id}"/>
+
+                <h:outputText value="#{car.name}"/>
+
+                <h:outputText value="#{car.year}"/>
+
+                <h:outputText value="#{car.color}"/>
+
+            </p:panelGrid>
+        </p:dataScroller>
+
+    </h:form>
+</h:body>
+</html>

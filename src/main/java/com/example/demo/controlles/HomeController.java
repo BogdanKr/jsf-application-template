@@ -3,15 +3,20 @@ package com.example.demo.controlles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
 
 @Named
 public class HomeController {
     public final static Logger LOGGER = LoggerFactory.getLogger(HomeController.class);
 
-    private String name = "Bogdan";
+    private String name;
 
-    private String surname = "Krasun";
+    private String surname;
 
     private String dateBirth;
     private String placeBirth;
@@ -21,6 +26,9 @@ public class HomeController {
     private boolean checkbox;
     private String finish;
     private String selectonemenu;
+    private List<Car> cars;
+    private Car selectedCar;
+
 
     public String getSelectonemenu() {
         return selectonemenu;
@@ -124,10 +132,40 @@ public class HomeController {
 
     public void finish() {
         System.out.println("Finish: " + name + " " + surname);
-        System.out.println("SelectOneMenu: "+ selectonemenu);
+        System.out.println("SelectOneMenu: " + selectonemenu);
     }
 
-    public String goPrime(){
+    public String goPrime() {
         return "primefaces.xhtml?faces-redirect=true";
+    }
+
+    public void showMessage() {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("My first growl", "Your message: \n" + "\n" + name + "\n" + surname));
+    }
+
+    @PostConstruct
+    private void initCars(){
+        this.cars = new ArrayList<>();
+        for (int i = 1; i < 1001; i++) {
+            cars.add(new Car(i, "Automobile 0"+i, 2000+i, "Color:"+i));
+        }
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+    public Car getSelectedCar() {
+        return selectedCar;
+    }
+
+    public void setSelectedCar(Car selectedCar) {
+        this.selectedCar = selectedCar;
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Demo application</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top: 15%">
+            <p:outputLabel value="Name"/>
+            <p:inputText value="#{homeController.name}"/>
+            <p:outputLabel value="Surname"/>
+            <p:inputText value="#{homeController.surname}"/>
+            <p:outputLabel value=""/>
+            <p:commandButton value="Gooo" style="margin-left: 50px; min-width: 100px" oncomplete="PF('dlg1').show();"/>
+        </p:panelGrid>
+    </h:form>
+
+    <p:growl id="growl" showDetail="true" sticky="true"/>
+
+    <p:dialog header="My dialog" widgetVar="dlg1" style="min-height: 300px; min-width: 300px ; padding-bottom: 10px;" >
+        <h:form style="text-align: center;">
+            <h:outputText value="#{homeController.name}"/>
+            <br/>
+            <h:outputText value="#{homeController.surname}"/>
+            <br/>
+            <br/>
+            <br/>
+            <p:commandButton value="Comtinue" style="min-width: 100px ; padding: 10px; margin-top: 90%"
+                             action="#{homeController.showMessage}" update="growl"/>
+        </h:form>
+    </p:dialog>
+</h:body>
+</html>
