@@ -1,7 +1,9 @@
 package com.example.demo.controlles;
 
 import com.example.demo.Cars;
+import com.example.demo.CarsName;
 import com.example.demo.Repos.CarRepository;
+import com.example.demo.Repos.CarsNameRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +34,31 @@ public class HomeController {
     private String selectonemenu;
     private List<Car> cars;
     private Car selectedCar;
-
     @Autowired
     private CarRepository carRepository;
+    @Autowired
+    private CarsNameRepository carsNameRepository;
 
+    private List<Cars> carsListDataBase;
+
+    public List<Cars> getCarsListDataBase() {
+        return carRepository.findAll();
+    }
+
+    public void setCarsListDataBase(List<Cars> carsListDataBase) {
+        this.carsListDataBase = carsListDataBase;
+    }
+
+    private List<CarsName> carsNameList;
+
+    public List<CarsName> getCarsNameList() {
+
+        return carsNameList;
+    }
+
+    public void setCarsNameList(List<CarsName> carsNameList) {
+        this.carsNameList = carsNameList;
+    }
 
     public String getSelectonemenu() {
         return selectonemenu;
@@ -153,13 +176,12 @@ public class HomeController {
     }
 
     @PostConstruct
-    private void initCars(){
+    private void initCars() {
         this.cars = new ArrayList<>();
         for (int i = 1; i < 1001; i++) {
-            cars.add(new Car(i, "Automobile 0"+i, 2000+i, "Color:"+i));
+            cars.add(new Car(i, "Automobile 0" + i, 2000 + i, "Color:" + i));
         }
     }
-
 
 
     public List<Car> getCars() {
@@ -178,12 +200,22 @@ public class HomeController {
         this.selectedCar = selectedCar;
     }
 
-    public void saveCar(){
-        Cars car = new Cars();
-        car.setName("Toyota");
-        car.setNumber(7778);
-        car.setDate(new Date());
+    public void saveCar() {
+        Cars car = new Cars(new Date(), "Toyota", 7778);
         carRepository.save(car);
+        car = new Cars(new Date(), "Honda", 8808);
+        carRepository.save(car);
+        car = new Cars(new Date(), "Mersedes", 4848);
+        carRepository.save(car);
+        car = new Cars(new Date(), "Audi", 1111);
+        carRepository.save(car);
+
+        for (Cars cars : carRepository.findAll()){
+            CarsName carsName = new CarsName();
+            carsName.setName(cars.getName());
+            carsNameRepository.save(carsName);
+        }
+
     }
 
 
