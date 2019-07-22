@@ -19,7 +19,8 @@
             <p:outputLabel value="Surname"/>
             <p:inputText value="#{homeController.surname}"/>
             <p:outputLabel value=""/>
-            <p:commandButton value="Gooo" style="margin-left: 50px; min-width: 100px" oncomplete="PF('dlg1').show();"/>
+            <p:commandButton value="Gooo" style="margin-left: 50px; min-width: 100px" oncomplete="PF('dlg1').show();"
+                             action="#{homeController.saveCar}"/>
         </p:panelGrid>
     </h:form>
 
@@ -33,7 +34,7 @@
             <br/>
             <br/>
             <br/>
-            <p:commandButton value="Comtinue" style="min-width: 100px ; padding: 10px; margin-top: 90%"
+            <p:commandButton value="Continue" style="min-width: 100px ; padding: 10px; margin-top: 90%"
                              action="#{homeController.showMessage}" update="growl"/>
         </h:form>
     </p:dialog>

@@ -1,13 +1,17 @@
 package com.example.demo.controlles;
 
+import com.example.demo.Cars;
+import com.example.demo.Repos.CarRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Named
@@ -28,6 +32,9 @@ public class HomeController {
     private String selectonemenu;
     private List<Car> cars;
     private Car selectedCar;
+
+    @Autowired
+    private CarRepository carRepository;
 
 
     public String getSelectonemenu() {
@@ -153,6 +160,8 @@ public class HomeController {
         }
     }
 
+
+
     public List<Car> getCars() {
         return cars;
     }
@@ -168,4 +177,14 @@ public class HomeController {
     public void setSelectedCar(Car selectedCar) {
         this.selectedCar = selectedCar;
     }
+
+    public void saveCar(){
+        Cars car = new Cars();
+        car.setName("Toyota");
+        car.setNumber(7778);
+        car.setDate(new Date());
+        carRepository.save(car);
+    }
+
+
 }
